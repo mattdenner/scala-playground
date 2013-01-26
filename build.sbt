@@ -10,7 +10,9 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "1.9.1"
 )
 
-scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
+scalacOptions := Seq("-deprecation", "-feature", "-encoding", "utf8")
+
+initialCommands in console := "import scalaz._, Scalaz._"
 
 resolvers ++= Seq(
   "spray repo" at "http://repo.spray.io/",
