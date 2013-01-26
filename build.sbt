@@ -34,8 +34,7 @@ libraryDependencies ++= Seq(
   "org.scalaz"    %% "scalaz-core"               % "6.0.4",
   "org.typelevel" %% "scalaz-contrib-210"        % "0.1",
   "org.typelevel" %% "scalaz-contrib-validation" % "0.1",
-  "org.typelevel" %% "scalaz-contrib-undo"       % "0.1",
-  "org.typelevel" %% "scalaz-dispatch"           % "0.1"
+  "org.typelevel" %% "scalaz-contrib-undo"       % "0.1"
 )
 
 resolvers ++= Seq(
