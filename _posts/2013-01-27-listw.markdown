@@ -1,0 +1,14 @@
+---
+layout: default
+title: Scalaz's ListW
+tested_by: "scalaz/ListWSpec"
+---
+* another **type class** (*pimp*, which apparently isn't PC any more) that extends the behaviour of the core `List[T]` class;
+* as with `OptionW` adding the `none[T]`, we get `nil[T]` for a type safe `Nil`;
+* [`intersperse`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/ListW.scala.html#66332) puts entries inbetween the entries in the list;
+* [`intercalate`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/ListW.scala.html#66333) does the same, except that it's a `List[T]`, so it's kind of `List[T].flatMap` from one perspective;
+* nothing much interesting for `powerset`, `tails`, `pairs` and `stripPrefix`;
+* I have no idea why [`mapAccumLeft`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/ListW.scala.html#66363) and [`mapAccumRight`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/ListW.scala.html#66368) are there but they do what you expect: map *and* accumulate (or fold!)
+* at the moment [`toNel`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/ListW.scala.html#66334) and [`<^>`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/ListW.scala.html#254285) are hard to check because `assert_===` needs more that I haven't got to yet!
+
+FYI, "NEL" is a "Non-Empty List", and I'm not sure what the obsession with odd operators is, yet.
