@@ -1,0 +1,14 @@
+---
+layout: default
+title: Scalaz's OptionW
+---
+Here's what I've learned for `OptionW[T]` so far:
+
+* it's extending the behaviour of `Option[T]` through the use of [an implicit conversion](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/OptionW.scala.html#40773);
+* you get a typesafe `None` by using `none[T]`, as well as the ability to get a `Some` from an object with `x.some`;
+* [`cata`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/OptionW.scala.html#43999) allows you to do something with `Some` and something with `None`, independently;
+* [`fold`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/OptionW.scala.html#44002) is an alias for `cata`, but you have to specify the type otherwise it doesn't compile;
+* it's more obvious to use `x.some(f).none(v)` than `cata` or `fold` IMO;
+* [`orZero`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/OptionW.scala.html#44019) might be useful when mapping a collection of `Option`.
+
+All of this should be documented in [OptionWSpec](https://github.com/mattdenner/scala-playground/blob/master/src/test/scala/com/denner/scalaz/OptionWSpec.scala).
