@@ -3,10 +3,18 @@ layout: default
 title: Introduction
 ---
 {% for post in paginator.posts %}
-<dl>
-  <dt><a href="/scala-playground/{{post.url}}">{{post.title}}</a></dt>
-  <dd>{{post.content}}</dd>
-</dl>
+<article class="post">
+  <header>
+    <h1>
+      <a href="/scala-playground/{{post.url}}">{{post.title}}</a>
+      - tested by
+      <a href="https://github.com/mattdenner/scala-playground/blob/master/src/test/scala/com/denner/{{post.tested_by}}.scala">{{post.tested_by}}</a>
+    </h1>
+  </header>
+  <section>
+    {{post.content}}
+  </section>
+</article>
 {% endfor %}
 
 <nav id="pagination">
