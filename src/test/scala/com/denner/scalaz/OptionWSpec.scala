@@ -5,7 +5,8 @@ class OptionWSpec extends org.scalatest.FunSpec {
   import Scalaz._
 
   describe("some") {
-    it("is something") { some("Value") assert_=== Some("Value") }
+    it("is something")                { some("Value") assert_=== Some("Value") }
+    it("can be applied to an object") { "Value".some  assert_=== some("Value") }
   }
 
   /*
