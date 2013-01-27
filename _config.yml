@@ -2,3 +2,4 @@ safe: true
 lsi: false
 pygments: true
 paginate: 5
+baseurl: http://mattdenner.github.com/scala-playground/
