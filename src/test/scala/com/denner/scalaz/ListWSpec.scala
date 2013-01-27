@@ -30,12 +30,27 @@ class ListWSpec extends org.scalatest.FunSpec {
     it("generates all possible pairs") { List(1,2,3).pairs.sorted assert_=== List((1,2),(1,3),(2,3)).sorted }
   }
   describe("List[T].powerset") {
-    it("is a list of the empty list for an empty list") { nil[Int].powerset.toList    assert_=== List(nil[Int]) }
-    it("generates all lists")                           { List(1,2,3).powerset assert_=== List(List(1,2,3), List(1,2), List(1,3), List(1), List(2,3), List(2), List(3), List()) }
+    it("is a list of the empty list for an empty list") { nil[Int].powerset.toList assert_=== List(nil[Int]) }
+    it("generates all lists")                           { List(1,2,3).powerset     assert_=== List(List(1,2,3), List(1,2), List(1,3), List(1), List(2,3), List(2), List(3), List()) }
   }
   describe("List[T].tails") {
     it("is a list of the empty list for an empty list") { nil[Int].tails.toList    assert_=== List(nil[Int]) }
     it("generates all tails")                           { List(1,2,3).tails.toList assert_=== List(List(1,2,3), List(2,3), List(3), List()) }
+  }
+
+  /*
+   * I can't see why this would be here, but these two functions are a combination of map and fold.
+   */
+  describe("List[T].mapAccumLeft[B,C]") {
+    it("accumulates from left & maps") { List(1,2,3).mapAccumLeft("", (c: String, a: Int) => (c ++ a.toString, a * 2)) assert_=== ("123", List(2,4,6)) }
+  }
+  describe("List[T].mapAccumRight[B,C]") {
+    it("accumulates from right & maps") { List(1,2,3).mapAccumRight("", (c: String, a: Int) => (c ++ a.toString, a * 2)) assert_=== ("321", List(2,4,6)) }
+  }
+
+  describe("List[T].stripPrefix") {
+    it("returns the list afer prefix removal")   { List(1,2,3).stripPrefix(List(1,2)) assert_=== List(3).some }
+    it("returns none when prefix doesn't match") { List(1,2,3).stripPrefix(List(2,3)) assert_=== none[List[Int]] }
   }
 
   // TODO[scalaz.Show,scalaz.EqualTo] Can't perform === on these because the there are missing traits.  Will return to do this after learning those traits!
