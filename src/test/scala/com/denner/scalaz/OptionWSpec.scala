@@ -26,6 +26,9 @@ class OptionWSpec extends org.scalatest.FunSpec {
     it("deals with something") { none[String].cata((s) => "Something", "Nothing")  assert_=== "Nothing" }
     it("deals with nothing")   { some("Hello").cata((s) => "Something", "Nothing") assert_=== "Something" }
   }
+  describe("Option[T].fold[B]") {
+    it("should behave like cata but clashes with existing fold implementations") { pending }
+  }
 
   /*
    * Option[W].cata can be a bit awkward to read, so enter some:
