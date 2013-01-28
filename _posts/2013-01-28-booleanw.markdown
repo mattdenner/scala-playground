@@ -1,0 +1,10 @@
+---
+layout: default
+title: Scalaz's BooleanW
+tested_by: "scalaz/BooleanWSpec"
+---
+* sticking with the theme of type classes, it extends the behaviour of `true` and `false`;
+* nicely it uses [`isTrue`](https://github.com/scalaz/scalaz/blob/release/6.0.4/core/src/main/scala/scalaz/BooleanW.scala#L4) to store the boolean value;
+* [`either`](https://github.com/scalaz/scalaz/blob/release/6.0.4/core/src/main/scala/scalaz/BooleanW.scala#L158) chains with `or` to give you an `Either[T]`, and it's typesafe;
+* [`?`](https://github.com/scalaz/scalaz/blob/release/6.0.4/core/src/main/scala/scalaz/BooleanW.scala#L141) with `|` gives similar behaviour to the ternary operator (`x ? a : * * * * b`), and it's typesafe;
+* there are a bunch of logical operators, like the standard `&` or `|`, except that you have to know the keycodes for the, which isn't given in the docs and is a nightmare to work out!
