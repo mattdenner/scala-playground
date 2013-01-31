@@ -1,0 +1,8 @@
+---
+layout: default
+title: Scalaz's CharW
+tested_by: "scalaz/CharWSpec"
+---
+* [`digit`](https://github.com/scalaz/scalaz/blob/release/6.0.4/core/src/main/scala/scalaz/CharW.scala#L8) and [`alpha`](https://github.com/scalaz/scalaz/blob/release/6.0.4/core/src/main/scala/scalaz/CharW.scala#L10) return `Option[Digit]` and `Option[Alpha]` results;
+* these are for typesafe functions: i.e. `add(a:Digit,b:Digit)` adds *digits*;
+* needed to write [`Equal[Alpha]` and `Show[Alpha]`](https://github.com/mattdenner/scala-playground/blob/master/src/test/scala/com/denner/scalaz/CharWSpec.scala#L10) and not sure why they aren't in scalaz?
