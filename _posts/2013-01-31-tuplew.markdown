@@ -1,0 +1,9 @@
+---
+layout: default
+title: Scalaz's TupleW
+tested_by: "scalaz/TupleWSpec"
+---
+* Hmm, no source file but there is documentation for [scalaz.TupleW](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/TupleW.scala.html);
+* `fold` does what I'd like for tuple to do: convert itself into the parameters for a function;
+* `mapElements` allows for mapping of elements independently, but could be cumbersome for large tuples;
+* `toIndexedSeq` gives you an indexed sequence, although [shapeless]() might offer a better one with an `HList`.
