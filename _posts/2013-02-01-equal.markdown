@@ -1,0 +1,10 @@
+---
+layout: default
+title: Scalaz's Equal
+tested_by: "scalaz/EqualSpec"
+---
+* extracts the concept of [equality](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/Equal.scala.html#11509) out into a separate object, and uses [implicit conversions](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/Equal.scala.html#11510) to construct them;
+* linking with [`Identity[T]`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/Identity.scala.html#15724) powers the use of [`===`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/Identity.scala.html#48590) and [`/==`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/Identity.scala.html#48591);
+* but the `===` operator clashes with Scalatest's implementation, which means you have to do some implicit conversion finagaling!
+* provides [`equalBy`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/Equal.scala.html#128143) convenience helper when comparing by an exposed value/function;
+* provides [`equal`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/Equal.scala.html#39978) for more complex scenarios.
