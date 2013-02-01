@@ -17,6 +17,10 @@ title: All pages
 </article>
 {% endfor %}
 
+<style type="text/css">
+  #pagination ul, #pagination ul li { list-style: none; margin: 0, padding: 0; }
+  #pagination ul li { display: inline-block; margin: 0 0.25em; }
+</style>
 <nav id="pagination">
   <ul>
 {% if paginator.previous_page %}<li><a href="/scala-playground/{% if paginator.previous_page > 1 %}page{{paginator.previous_page}}{% endif %}">&lt;&lt;</a></li>{% endif %}
