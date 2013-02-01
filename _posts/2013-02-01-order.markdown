@@ -1,0 +1,8 @@
+---
+layout: default
+title: Scalaz's Order
+tested_by: "scalaz/OrderSpec"
+---
+* as with `Equal[T]`, `Order[T]` separates the ordering from the class;
+* linking with [`Identity[T]`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/Identity.scala.html#15724) powers the use of [`?|?`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/Identity.scala.html#48596) and several other comparator methods;
+* provides [`orderBy`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/Order.scala.html#293447) and [`order`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/Order.scala.html#40789) for convenience.
