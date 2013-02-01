@@ -1,0 +1,11 @@
+---
+layout: default
+title: Scalaz's Identity
+tested_by: "scalaz/IdentitySpec"
+---
+* not sure but I'm assuming that [`Identity[T]`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/Identity.scala.html) is not only a type class, but the identity monad too?
+* standard library conversions in `some`, `left`, `right`, `pair` and `squared` for `Option[T]`, `Left[T]`, `Right[T]`, `Tuple2[T,T]` and `Tuple2[T,T]`;
+* `min` and `max` provide for the standard minimum and maximum selection between two T's;
+* `lt`, `lte`, `eq`, `gte` and `gt` are the ordering comparators, built off [`Order[T]`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/Order.scala.html);
+* `?|?` returns the actual `Ordering` from `Order[T].order`;
+* `===` and `/===` are typesafe `==` and `!=` through an [`Equal[T]`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/Equal.scala.html) implementation.
