@@ -1,0 +1,51 @@
+---
+layout: default
+title: Scalaz's Monoid
+tested_by: "scalaz/MonoidSpec"
+---
+Getting my head round monoids and monads so here goes!
+
+A monoid describes a binary operation on a type and a zero for that type; there are potentially many monoids for a given type because we can pick a particular binary operation
+and a suitable zero for it.  The "zero" is not necessarily zero (`0`), but a value of the type that has no affect if put into the operation with another value the type.
+
+To explain, here are two monoids for numbers:
+
+- the binary operation addition (`+`) and the associated zero zero (`0`);
+- the binary operation multiplication (`*`) and the associated zero one (`1`).
+
+And here are two monoids for different types:
+
+- the binary operation of string concatentation and the associated zero of the empty string (`""`);
+- the binary operation of list concatentation and the associated zero of the empty list (`Nil`).
+
+These are all *different* monoids.
+
+In [Functional Programming in Scala](http://www.manning.com/bjarnason/) monoids are defined as a trait:
+
+<pre>
+trait Monoid[A] {
+  def op(a1: A, a2: A): A
+  def zero: A
+}
+</pre>
+
+Scalaz pushes this a step further defining a monoid as:
+
+<pre>
+trait Monoid[A] extends Zero[A] with Semigroup[A]
+</pre>
+
+This nicely describes the monoid because it is a restriction upon a semigroup.
+
+There's nothing "special" about a monoid, as in it doesn't really do anything other than collect
+the information about the operation and the associated zero.  I guess you could extend the definition
+to actually use the zero:
+
+<pre>
+def op(a1: A, a2: => A = zero)
+</pre>
+
+But I'm guessing there's a good reason not to?
+
+Anyway, because `Monoid[A]` is a [`Semigroup[A]`](http://scalaz.github.com/scalaz/scalaz-2.9.1-6.0.4/doc.sxr/scalaz/Semigroup.scala.html#19849) that means you get all of the funky stuff that provides,
+which basically means `|+|`.  Handy!
